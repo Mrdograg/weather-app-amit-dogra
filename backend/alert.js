@@ -1,7 +1,6 @@
 // alert.js
 const { alertThreshold } = require('./config');
 
-// Function to check if the latest temperature breaches the alert threshold
 const checkThreshold = (weatherData) => {
   for (const data of weatherData) {
     if (data.temp > alertThreshold) {

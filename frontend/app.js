@@ -1,19 +1,17 @@
-// Update the date format to "Day, date/month/year"
 const formatDate = (date) => {
     const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
     return date.toLocaleDateString('en-GB', options).replace(',', '');
 };
 
-// Function to fetch and display weather data
+
 const fetchWeatherData = async () => {
     try {
         const response = await fetch('http://localhost:3036/api/weather');
         const weatherData = await response.json();
         
         const weatherContainer = document.getElementById('weatherContainer');
-        weatherContainer.innerHTML = '';  // Clear previous data
-        
-        // Add each city's weather data in tile format
+        weatherContainer.innerHTML = ''; 
+       
         weatherData.forEach((weather) => {
             const weatherBox = document.createElement('div');
             weatherBox.className = 'weather-box';
@@ -34,8 +32,8 @@ const fetchWeatherData = async () => {
     }
 };
 
-// Fetch weather data every 5 seconds
+
 setInterval(fetchWeatherData, 5000);
 
-// Initial fetch
+
 fetchWeatherData();

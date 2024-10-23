@@ -1,4 +1,3 @@
-// summary.js
 
 const calculateDailySummary = (weatherData) => {
     const temps = weatherData.map(data => parseFloat(data.temp));
@@ -6,7 +5,6 @@ const calculateDailySummary = (weatherData) => {
     const minTemp = Math.min(...temps);
     const avgTemp = (temps.reduce((acc, val) => acc + val, 0) / temps.length).toFixed(2);
   
-    // Dominant weather condition (most frequent main condition)
     const weatherCounts = weatherData.reduce((acc, data) => {
       acc[data.main] = (acc[data.main] || 0) + 1;
       return acc;
